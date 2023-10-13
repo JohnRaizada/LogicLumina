@@ -63,7 +63,7 @@ class HomeViewModel: ViewModel() {
             val requestCall = controllerService.getVideo()
             requestCall.enqueue(object :
             retrofit2.Callback<ResponseBody>{
-                
+
             })
         }
     }

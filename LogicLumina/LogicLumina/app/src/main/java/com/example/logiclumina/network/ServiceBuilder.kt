@@ -9,12 +9,13 @@ import retrofit2.create
 import java.util.concurrent.TimeUnit
 
 object ServiceBuilder {
-    private const val URL = "https://logiclumina.loophole.site/"
+    private const val URL = "https://logic.loophole.site/"
     //Create a Custom Interceptor to apply Headers application wide
     private val logger = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
     private val headerInterceptor = Interceptor { chain ->
         var request = chain.request()
         request = request.newBuilder()
+            .addHeader("Hello", "World")
             .build()
         chain.proceed(request)
     }

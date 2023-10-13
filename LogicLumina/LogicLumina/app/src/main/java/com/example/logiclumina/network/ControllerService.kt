@@ -2,6 +2,7 @@ package com.example.logiclumina.network
 
 import com.example.logiclumina.data.models.RecieveText
 import com.example.logiclumina.data.models.SendText
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -11,5 +12,5 @@ interface ControllerService {
     @POST("api/")
     fun postText(@Body sendText: SendText): Call<RecieveText>
     @GET("api/")
-    fun getVideo(): Call<SendText>
+    fun getVideo(): Call<ResponseBody>
 }

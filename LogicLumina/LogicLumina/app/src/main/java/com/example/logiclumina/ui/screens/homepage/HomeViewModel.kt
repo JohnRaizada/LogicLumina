@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
 
@@ -51,6 +52,18 @@ class HomeViewModel: ViewModel() {
                         )
                         .show()
                 }
+            })
+        }
+    }
+    fun recieveVideo(
+        context: Context
+    ){
+        viewModelScope.launch {
+            val controllerService = ServiceBuilder.buildService(ControllerService::class.java)
+            val requestCall = controllerService.getVideo()
+            requestCall.enqueue(object :
+            retrofit2.Callback<ResponseBody>{
+                
             })
         }
     }
